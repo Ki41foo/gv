@@ -1,0 +1,225 @@
+<html>
+	
+	<header>
+		
+		<title>不夜城抽獎</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1,
+		user-scalable=0">
+		<!--<script type="text/javascript" src="./wScratchPad.min.js"></script>-->
+		<script>
+			
+			$(document).ready(function() {
+				
+				Number.prototype.toHHMMSS = function () {
+    				var sec_num = parseInt(this, 10); // don't forget the second param
+				    var hours   = Math.floor(sec_num / 3600);
+				    var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+				    var seconds = sec_num - (hours * 3600) - (minutes * 60);
+				
+				    if (hours   < 10) {hours   = "0"+hours;}
+				    if (minutes < 10) {minutes = "0"+minutes;}
+				    if (seconds < 10) {seconds = "0"+seconds;}
+				    var time    = hours+':'+minutes+':'+seconds;
+				    return time;
+				}
+				
+				if(<%=@type%> ==0) {
+					
+					$("#start").hide();
+					$("#tip-wrap").show();
+					$('#tip-wrap').css('background-color','grey')
+	  				$('#tip').css('top','29%')
+	  				
+	  				var last = parseInt(<%=@last%>/1000);
+	  				var interval = 24*60*60 - Math.floor(Date.now() / 1000) + last;
+	  				$("#tip").html("今天你已經抽過，明天再來吧<br/>距離下次抽獎 "+interval.toHHMMSS());
+	  				setInterval(function() {
+	  					interval--;
+	  					$("#tip").html("今天你已經抽過，明天再來吧<br/>距離下次抽獎 "+interval.toHHMMSS());
+	  					if(interval <= 0) {
+	  						window.location.reload();
+	  					}
+	  				},1000);
+					
+				} else if(<%=@type%> ==1) {
+					$("#start").fadeIn("slow");
+					$("#tip-wrap").hide();
+					
+				} else {
+					$("#start").hide();
+					$("#tip-wrap").hide();
+					$('#card').wScratchPad({
+  							size        : 10,          
+  							bg          : "/assets/bingo",  
+	  						fg          : "/assets/bingo"});
+					
+					$("#card").show();
+				}
+			
+				$("#start").click(function() {
+					$.ajax({
+  						url: "lottery/signal?uc=<%=@uc%>&signature=<%=@signature%>&terminalId=<%=@terminalId%>&uCode=<%=@uCode%>&ti=<%=@ti%>",
+					}).done(function(data) {
+					    
+						var result;
+						if(data == "0") {
+							result = "/assets/damn";
+						}
+						
+						if(data == "1") {
+							result = "/assets/bingo";
+						}
+						
+						if(data == "99") {
+							
+						
+							$('#start').hide();
+							$('#tip-wrap').show();
+							$('#tip-wrap').css('background-color','grey')
+							$('#tip').text('出錯了')
+							return;
+						}
+						
+						var flag = true;
+						$('#card').wScratchPad({
+  							size        : 10,          
+  							bg          : result,  
+	  						fg          : "/assets/cover",  
+	  						scratchMove : function(e,percent) {
+	  						if(percent > 50 & flag) {
+	  							flag = false;
+	  							$('#card').wScratchPad('clear');
+	  							setTimeout(function() {
+	  								if(data == "1") {
+	  									alert("恭喜你獲得iphone 6s一臺，請速與不夜城超人豪哥聯係.");
+	  								}
+            					
+	  								// $("#tip").fadeIn();
+	  								// $("#tip").text("恭喜你獲得iphone 6s一臺，請憑此頁面與餐廳經理聯係。")
+	  							},700);
+	  						}
+	  					},       
+						});
+						
+						$("#start").hide();
+						$("#card").fadeIn("slow");
+					});
+					
+				});
+				
+			});
+			
+		</script>
+		
+		<style>
+			#bg {
+				position: fixed; 
+				top: -50%; 
+				left: -50%; 
+				width: 200%; 
+				height: 200%;
+			}
+			
+			#bg img {
+				position: absolute;
+				width:50%;
+				height:50%;
+				top: 0; 
+				left: 0; 
+				right: 0; 
+				bottom: 0; 
+				margin: auto; 
+				min-width: 50%;
+				min-height: 50%;
+			}
+			
+			#navi {
+				
+				position: absolute;
+				z-index: 2;
+				width: 80%;
+				height:15%;
+				left:10%;
+				bottom:15%;
+			}
+			
+			
+			#start {
+				position:absolute;
+				width: 100%;
+				height:100%;
+				background-color:#ff2020;
+				border:none;
+				top:0;
+				font-size:22pt;
+				color:white;
+				-moz-box-shadow: 0 0 2px black;
+				-webkit-box-shadow: 0 0 2px black;
+				box-shadow: 0 0 2px black;
+				moz-border-radius: 3px;
+  				-webkit-border-radius: 3px;
+			}
+			
+			#card {
+				position:absolute;
+				width: 100%;
+				height:100%;
+				-moz-box-shadow: 0 0 5px black;
+				-webkit-box-shadow: 0 0 5px black;
+				box-shadow: 0 0 5px black;
+				display:none;
+			}
+			
+			#tip-wrap {
+				position: absolute;
+				z-index: 2;
+				width: 80%;
+				height:15%;
+				left:10%;
+				bottom:15%;
+				moz-border-radius: 5px;
+  				-webkit-border-radius: 5px;
+  				background-color:#ff2020;
+    			text-align: center;
+			}
+			
+			#tip {
+				padding-left:5px;
+				padding-right:5px;
+				width:100%;
+				height:100%;
+				position: absolute;
+				color: white;
+				font-weight:bold;
+				font-size:12pt;
+    			top: 50%;
+    			left: 0;
+    			right: 0;
+   				margin-top: -12px;
+   				line-height:1.5;
+			}
+			
+		</style>
+		
+	</header>
+	
+	<body>
+		
+		<div id="navi">
+			<div id="card"></div>
+			<button id="start">領取刮刮卡</button>
+			
+			
+		</div>
+		<div id="tip-wrap">
+			<p id="tip"></p>
+		
+		</div>
+		
+		
+		<div id="bg">
+			<img src="/assets/bg.png" alt="">
+		</div>
+	</body>
+</html>
