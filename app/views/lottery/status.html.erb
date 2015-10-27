@@ -51,8 +51,8 @@
 					$("#tip-wrap").hide();
 					$('#card').wScratchPad({
   							size        : 10,          
-  							bg          : "/assets/bingo",  
-	  						fg          : "/assets/bingo"});
+  							bg          : "<%= asset_path ('bingo.png') %>",  
+	  						fg          : "<%= asset_path ('bingo.png') %>"});
 					
 					$("#card").show();
 				}
@@ -64,11 +64,11 @@
 					    
 						var result;
 						if(data == "0") {
-							result = "/assets/damn";
+							result = "<%= asset_path ('damn.png') %>";
 						}
 						
 						if(data == "1") {
-							result = "/assets/bingo";
+							result = "<%= asset_path ('bingo.png') %>";
 						}
 						
 						if(data == "99") {
@@ -85,7 +85,7 @@
 						$('#card').wScratchPad({
   							size        : 10,          
   							bg          : result,  
-	  						fg          : "/assets/cover",  
+	  						fg          : "<%= asset_path ('cover.png') %>",  
 	  						scratchMove : function(e,percent) {
 	  						if(percent > 50 & flag) {
 	  							flag = false;
@@ -219,7 +219,8 @@
 		
 		
 		<div id="bg">
-			<img src="/assets/bg.png" alt="">
+			<img src=<%= asset_path 'bg.png' %> alt="">
+			
 		</div>
 	</body>
 </html>
