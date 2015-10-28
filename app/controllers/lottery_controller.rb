@@ -43,11 +43,11 @@ class LotteryController < ApplicationController
 
 			if msg == 'msg22'
 				@type = 1
-				@last = '1445842328000'
+				
 			elsif msg == 'msg23'
 				@type = 0
-				#@last = JSON.parse(body)["returnObject"]["object"]
-				
+				@last = JSON.parse(body)["returnObject"]["object"]["timestamp"]
+				#@last = '1445842328000'
 			elsif msg == 'msg24'
 				@type = 2
 			elsif msg == 'msg99'
