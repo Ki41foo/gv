@@ -31,8 +31,7 @@
 					$('#tip-wrap').css('background-color','grey')
 	  				$('#tip').css('top','29%')
 	  				
-	  				var last = parseInt(<%=@last%>/1000);
-	  				var interval = 20 - Math.floor(Date.now() / 1000) + last;
+	  				var interval = <%=@interval%>;
 	  				$("#tip").html("今天你已經抽過，明天再來吧<br/>距離下次抽獎 "+interval.toHHMMSS());
 	  				setInterval(function() {
 	  					interval--;

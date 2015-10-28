@@ -6,6 +6,7 @@ class LotteryController < ApplicationController
 	require 'rubygems'
 	require 'digest/md5'
 	
+	
 	def status
 		if request.get?
 			# byte[] bytes = user.phone.getBytes();
@@ -40,13 +41,16 @@ class LotteryController < ApplicationController
 	       	
 			msg = JSON.parse(body)["msg"]
 			
-			@last = '0'
+			@interval = 0
 			if msg == 'msg22'
 				@type = 1
 				
 			elsif msg == 'msg23'
 				@type = 0
-				@last = JSON.parse(body)["returnObject"]["object"]["timestamps"]
+				last = JSON.parse(body)["returnObject"]["object"]["timestamps"]
+				@interval = 20 -  DateTime.now.to_i + last.to_i/1000
+				puts @interval
+				
 				
 			elsif msg == 'msg24'
 				@type = 2
