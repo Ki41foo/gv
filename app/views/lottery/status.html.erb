@@ -10,7 +10,7 @@
 		<script>
 			
 			$(document).ready(function() {
-				
+			
 				Number.prototype.toHHMMSS = function () {
     				var sec_num = parseInt(this, 10); // don't forget the second param
 				    var hours   = Math.floor(sec_num / 3600);
@@ -32,7 +32,7 @@
 	  				$('#tip').css('top','29%')
 	  				
 	  				var last = parseInt(<%=@last%>/1000);
-	  				var interval = 24*60*60 - Math.floor(Date.now() / 1000) + last;
+	  				var interval = 20 - Math.floor(Date.now() / 1000) + last;
 	  				$("#tip").html("今天你已經抽過，明天再來吧<br/>距離下次抽獎 "+interval.toHHMMSS());
 	  				setInterval(function() {
 	  					interval--;
@@ -43,6 +43,7 @@
 	  				},1000);
 					
 				} else if(<%=@type%> ==1) {
+					
 					$("#start").fadeIn("slow");
 					$("#tip-wrap").hide();
 					

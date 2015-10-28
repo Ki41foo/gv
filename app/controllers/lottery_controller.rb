@@ -34,20 +34,20 @@ class LotteryController < ApplicationController
 			@uCode = params[:uCode]
 			@json = JSON.generate({:uc => @uc})
                 
-			url = 'http://112.74.104.67/gvhappymacau/raffle/ispass'
+			url = 'http://120.25.150.132/gvhappymacau/raffle/ispass'
 	       
 	       	body = my_post(url,@uCode,@json,@terminalId,@signature)
 	       	
 			msg = JSON.parse(body)["msg"]
 			
-
+			@last = '0'
 			if msg == 'msg22'
 				@type = 1
 				
 			elsif msg == 'msg23'
 				@type = 0
-				@last = JSON.parse(body)["returnObject"]["object"]["timestamp"]
-				#@last = '1445842328000'
+				@last = JSON.parse(body)["returnObject"]["object"]["timestamps"]
+				
 			elsif msg == 'msg24'
 				@type = 2
 			elsif msg == 'msg99'
@@ -66,7 +66,7 @@ class LotteryController < ApplicationController
 
 	def signal
 		
-		url = 'http://112.74.104.67/gvhappymacau/raffle/start'
+		url = 'http://120.25.150.132/gvhappymacau/raffle/start'
 	    body = my_post(url,
 	    params[:uCode],
 	    JSON.generate({:uc => params[:uc],:ti => '1'}),
@@ -117,6 +117,7 @@ class LotteryController < ApplicationController
 	        'uCode' => uCode,
 	        'encryptedJson' => encryptedJson)
 	        
+        puts 'request ===== ' + url 
         puts 'response body ===== ' + res.body
         if(res.body.include? 'Apache')
         	return '{"msg":"msg98"}'
