@@ -1,0 +1,52 @@
+
+<html>
+    <header>
+        <title>愷哥哥</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+            var Chartkick = {"language": "zh"};
+            
+            $(document).ready(function() {
+                
+                setInterval(function() {
+                    //$('#dynamic').load('/review/index #dynamic')
+                    //window.location.reload();
+                     },20000);
+            });
+            
+        </script>
+        <%= javascript_include_tag "http://ajax.lug.ustc.edu.cn/jsapi", "chartkick" %>
+        
+        <style>
+            body{
+                background-color:#eecccc;
+                padding-left:10px;
+                padding-right:10px;
+            }
+            .right{
+                float:right;
+            }
+            
+        </style>
+     
+    </header>
+    
+    <body>
+        <h4 id='dynamic'>總抽獎數:  <%= @total_count %><span class="right">中獎次數:  <%= @bingo_count %></span></h4>
+        
+        <div>
+            
+            <%= line_chart @count_data,xtitle: "日期", ytitle: "次數",discrete:true,height: "300px"%>
+            <%= pie_chart @signature_data,height: "200px" %>
+            
+        </div>
+       <ul>
+           <%= render @lottery_records%>
+           
+       </ul>
+        
+    </body>
+    
+</html>
+
+

@@ -1,0 +1,111 @@
+[ 2015-10-27 03:15:45.6529 2627/7f7dc30bb780 age/Wat/WatchdogMain.cpp:1276 ]: Starting Passenger watchdog...
+[ 2015-10-27 03:15:45.6579 2630/7fe4d0ac2780 age/Cor/CoreMain.cpp:957 ]: Starting Passenger core...
+[ 2015-10-27 03:15:45.6581 2630/7fe4d0ac2780 age/Cor/CoreMain.cpp:234 ]: Passenger core running in multi-application mode.
+[ 2015-10-27 03:15:45.6745 2630/7fe4d0ac2780 age/Cor/CoreMain.cpp:707 ]: Passenger core online, PID 2630
+[ 2015-10-27 03:15:45.6797 2638/7f0d8dad2780 age/Ust/UstRouterMain.cpp:504 ]: Starting Passenger UstRouter...
+[ 2015-10-27 03:15:45.6802 2638/7f0d8dad2780 age/Ust/UstRouterMain.cpp:317 ]: Passenger UstRouter online, PID 2638
+App 2684 stdout: 
+App 2701 stdout: 
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg23"}
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 2701 stdout: 
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 2701 stdout: 
+App 2892 stdout: 
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg23"}
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg23"}
+App 2910 stdout: 
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 2701 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg23"}
+
+
+[ 2015-10-27 03:25:17.7796 2630/7fe4ce950700 age/Cor/CoreMain.cpp:507 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-27 03:25:17.7796 2638/7f0d8bc63700 age/Ust/UstRouterMain.cpp:397 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-27 03:25:17.7796 2638/7f0d8dad2780 age/Ust/UstRouterMain.cpp:467 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-27 03:25:17.7797 2630/7fe4d0ac2780 age/Cor/CoreMain.cpp:876 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-27 03:25:17.7797 2638/7f0d8bc63700 Ser/Server.h:444 ]: [UstRouter] Shutdown finished
+[ 2015-10-27 03:25:17.7797 2630/7fe4d0ac2780 age/Cor/CoreMain.cpp:794 ]: Disconnecting long-running connections for process 2701, application /home/ubuntu/workspace/public (development)
+[ 2015-10-27 03:25:17.7799 2638/7f0d8b462700 Ser/Server.h:759 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2015-10-27 03:25:17.9269 2638/7f0d8b462700 Ser/Server.h:444 ]: [UstRouterApiServer] Shutdown finished
+[ 2015-10-27 03:25:17.9236 2630/7fe4d0ac2780 age/Cor/CoreMain.cpp:794 ]: Disconnecting long-running connections for process 2910, application /home/ubuntu/workspace/public (development)
+[ 2015-10-27 03:25:17.9276 2630/7fe49dffb700 Ser/Server.h:759 ]: [ApiServer] Freed 0 spare client objects
+[ 2015-10-27 03:25:17.9277 2630/7fe49f7fe700 Ser/Server.h:759 ]: [ServerThr.6] Freed 128 spare client objects
+[ 2015-10-27 03:25:17.9277 2630/7fe49dffb700 Ser/Server.h:444 ]: [ApiServer] Shutdown finished
+[ 2015-10-27 03:25:17.9277 2630/7fe49f7fe700 Ser/Server.h:444 ]: [ServerThr.6] Shutdown finished
+[ 2015-10-27 03:25:17.9278 2630/7fe49ffff700 Ser/Server.h:759 ]: [ServerThr.5] Freed 128 spare client objects
+[ 2015-10-27 03:25:17.9279 2630/7fe49ffff700 Ser/Server.h:444 ]: [ServerThr.5] Shutdown finished
+[ 2015-10-27 03:25:17.9281 2630/7fe49effd700 Ser/Server.h:759 ]: [ServerThr.7] Freed 128 spare client objects
+[ 2015-10-27 03:25:17.9281 2630/7fe49effd700 Ser/Server.h:444 ]: [ServerThr.7] Shutdown finished
+[ 2015-10-27 03:25:17.9282 2630/7fe4ccfca700 Ser/Server.h:759 ]: [ServerThr.4] Freed 128 spare client objects
+[ 2015-10-27 03:25:17.9282 2630/7fe4ccfca700 Ser/Server.h:444 ]: [ServerThr.4] Shutdown finished
+[ 2015-10-27 03:25:17.9283 2630/7fe49e7fc700 Ser/Server.h:759 ]: [ServerThr.8] Freed 128 spare client objects
+[ 2015-10-27 03:25:17.9284 2638/7f0d8dad2780 age/Ust/UstRouterMain.cpp:498 ]: Passenger UstRouter shutdown finished
+[ 2015-10-27 03:25:17.9284 2630/7fe49e7fc700 Ser/Server.h:444 ]: [ServerThr.8] Shutdown finished
+[ 2015-10-27 03:25:17.9286 2630/7fe4ce950700 Ser/Server.h:759 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2015-10-27 03:25:17.9292 2630/7fe4ce950700 Ser/Server.h:444 ]: [ServerThr.1] Shutdown finished
+[ 2015-10-27 03:25:17.9287 2630/7fe4ce0ce700 Ser/Server.h:759 ]: [ServerThr.2] Freed 128 spare client objects
+[ 2015-10-27 03:25:17.9288 2630/7fe4cd84c700 Ser/Server.h:759 ]: [ServerThr.3] Freed 128 spare client objects
+[ 2015-10-27 03:25:17.9293 2630/7fe4ce0ce700 Ser/Server.h:444 ]: [ServerThr.2] Shutdown finished
+[ 2015-10-27 03:25:17.9293 2630/7fe4cd84c700 Ser/Server.h:444 ]: [ServerThr.3] Shutdown finished
+[ 2015-10-27 03:25:17.9294 2630/7fe4d0ac2780 age/Cor/CoreMain.cpp:794 ]: Disconnecting long-running connections for process 2701, application /home/ubuntu/workspace/public (development)
+[ 2015-10-27 03:25:17.9295 2630/7fe4d0ac2780 age/Cor/CoreMain.cpp:794 ]: Disconnecting long-running connections for process 2910, application /home/ubuntu/workspace/public (development)
+[ 2015-10-27 03:25:18.2345 2630/7fe4d0ac2780 age/Cor/CoreMain.cpp:942 ]: Passenger core shutdown finished
+[ 2015-10-27 03:42:31.3932 6512/7f5a87aca780 age/Wat/WatchdogMain.cpp:1276 ]: Starting Passenger watchdog...
+[ 2015-10-27 03:42:31.3982 6515/7f165c158780 age/Cor/CoreMain.cpp:957 ]: Starting Passenger core...
+[ 2015-10-27 03:42:31.3984 6515/7f165c158780 age/Cor/CoreMain.cpp:234 ]: Passenger core running in multi-application mode.
+[ 2015-10-27 03:42:31.4265 6515/7f165c158780 age/Cor/CoreMain.cpp:707 ]: Passenger core online, PID 6515
+[ 2015-10-27 03:42:31.4318 6523/7f590cc59780 age/Ust/UstRouterMain.cpp:504 ]: Starting Passenger UstRouter...
+[ 2015-10-27 03:42:31.4324 6523/7f590cc59780 age/Ust/UstRouterMain.cpp:317 ]: Passenger UstRouter online, PID 6523
+App 6569 stdout: 
+App 6585 stdout: 
+App 6585 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 6585 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg23"}
+App 6585 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 6616 stdout: 
+App 6624 stdout: 
+App 6585 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 6585 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg23"}
+App 6585 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 6585 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg24"}
+[ 2015-10-27 03:48:25.3389 6515/7f165c115700 age/Cor/CoreMain.cpp:794 ]: Disconnecting long-running connections for process 6616, application /home/ubuntu/workspace/public (development)
+[ 2015-10-27 03:48:25.3393 6515/7f165c115700 age/Cor/CoreMain.cpp:794 ]: Disconnecting long-running connections for process 6624, application /home/ubuntu/workspace/public (development)
+App 6585 stdout: response body ===== {"signal":"SUCCESSFUL","code":"200","msg":"msg22"}
+App 7182 stdout: 
+App 7202 stdout: 
+[ 2015-10-27 04:10:41.9568 6515/7f165c115700 age/Cor/CoreMain.cpp:794 ]: Disconnecting long-running connections for process 6585, application /home/ubuntu/workspace/public (development)
+
+
+[ 2015-10-27 05:21:06.9595 6515/7f1659fe6700 age/Cor/CoreMain.cpp:507 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-27 05:21:06.9596 6515/7f165c158780 age/Cor/CoreMain.cpp:876 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-27 05:21:06.9596 6523/7f590adea700 age/Ust/UstRouterMain.cpp:397 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-27 05:21:06.9597 6515/7f165c158780 age/Cor/CoreMain.cpp:794 ]: Disconnecting long-running connections for process 7202, application /home/ubuntu/workspace/public (development)
+[ 2015-10-27 05:21:06.9597 6523/7f590cc59780 age/Ust/UstRouterMain.cpp:467 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-27 05:21:06.9598 6523/7f590a5e9700 Ser/Server.h:759 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2015-10-27 05:21:06.9598 6523/7f590adea700 Ser/Server.h:444 ]: [UstRouter] Shutdown finished
+[ 2015-10-27 05:21:06.9599 6523/7f590a5e9700 Ser/Server.h:444 ]: [UstRouterApiServer] Shutdown finished
+[ 2015-10-27 05:21:06.9603 6515/7f164bfff700 Ser/Server.h:759 ]: [ServerThr.4] Freed 128 spare client objects
+[ 2015-10-27 05:21:06.9604 6515/7f164bfff700 Ser/Server.h:444 ]: [ServerThr.4] Shutdown finished
+[ 2015-10-27 05:21:06.9604 6515/7f1659764700 Ser/Server.h:759 ]: [ServerThr.2] Freed 128 spare client objects
+[ 2015-10-27 05:21:06.9604 6515/7f1659764700 Ser/Server.h:444 ]: [ServerThr.2] Shutdown finished
+[ 2015-10-27 05:21:06.9606 6515/7f1658ee2700 Ser/Server.h:759 ]: [ServerThr.3] Freed 128 spare client objects
+[ 2015-10-27 05:21:06.9606 6515/7f1658ee2700 Ser/Server.h:444 ]: [ServerThr.3] Shutdown finished
+[ 2015-10-27 05:21:06.9606 6515/7f1649ffb700 Ser/Server.h:759 ]: [ServerThr.8] Freed 128 spare client objects
+[ 2015-10-27 05:21:06.9606 6515/7f164affd700 Ser/Server.h:759 ]: [ServerThr.6] Freed 128 spare client objects
+[ 2015-10-27 05:21:06.9606 6515/7f1649ffb700 Ser/Server.h:444 ]: [ServerThr.8] Shutdown finished
+[ 2015-10-27 05:21:06.9606 6515/7f164a7fc700 Ser/Server.h:759 ]: [ServerThr.7] Freed 128 spare client objects
+[ 2015-10-27 05:21:06.9606 6515/7f164affd700 Ser/Server.h:444 ]: [ServerThr.6] Shutdown finished
+[ 2015-10-27 05:21:06.9607 6515/7f164a7fc700 Ser/Server.h:444 ]: [ServerThr.7] Shutdown finished
+[ 2015-10-27 05:21:06.9607 6515/7f164b7fe700 Ser/Server.h:759 ]: [ServerThr.5] Freed 128 spare client objects
+[ 2015-10-27 05:21:06.9607 6515/7f164b7fe700 Ser/Server.h:444 ]: [ServerThr.5] Shutdown finished
+[ 2015-10-27 05:21:06.9608 6515/7f1659fe6700 Ser/Server.h:759 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2015-10-27 05:21:06.9609 6515/7f1659fe6700 Ser/Server.h:444 ]: [ServerThr.1] Shutdown finished
+[ 2015-10-27 05:21:06.9610 6515/7f16497fa700 Ser/Server.h:759 ]: [ApiServer] Freed 0 spare client objects
+[ 2015-10-27 05:21:06.9610 6515/7f16497fa700 Ser/Server.h:444 ]: [ApiServer] Shutdown finished
+[ 2015-10-27 05:21:06.9611 6523/7f590cc59780 age/Ust/UstRouterMain.cpp:498 ]: Passenger UstRouter shutdown finished
+[ 2015-10-27 05:21:06.9611 6515/7f165c158780 age/Cor/CoreMain.cpp:794 ]: Disconnecting long-running connections for process 7202, application /home/ubuntu/workspace/public (development)
+[ 2015-10-27 05:21:07.1750 6515/7f165c158780 age/Cor/CoreMain.cpp:942 ]: Passenger core shutdown finished

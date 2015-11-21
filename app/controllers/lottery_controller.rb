@@ -9,6 +9,7 @@ class LotteryController < ApplicationController
 	
 	def status
 		if request.get?
+			
 			# byte[] bytes = user.phone.getBytes();
    #     for (int i = 0; i < bytes.length; i++) {
    #         bytes[i] = (byte) (bytes[i] + 2*i + 20);
@@ -17,6 +18,8 @@ class LotteryController < ApplicationController
    #			new = []
    #			phone.each_with_index do |element,index|
   	# 			new[index] = element + 2*index + 20
+  	
+  		
   				
 			# end
 			
@@ -35,6 +38,7 @@ class LotteryController < ApplicationController
 			@uCode = params[:uCode]
 			@json = JSON.generate({:uc => @uc})
                 
+            
 			url = 'http://120.25.150.132/gvhappymacau/raffle/ispass'
 	       
 	       	body = my_post(url,@uCode,@json,@terminalId,@signature)
@@ -73,21 +77,20 @@ class LotteryController < ApplicationController
 		url = 'http://120.25.150.132/gvhappymacau/raffle/start'
 	    body = my_post(url,
 	    params[:uCode],
-	    JSON.generate({:uc => params[:uc],:ti => '1'}),
+	    JSON.generate({:uc => params[:uc],:ti => params[:ti]}),
 	    params[:terminalId],
 	    params[:signature])
 		
 		msg = JSON.parse(body)["msg"]
-		if msg == "msg22" 
+		if msg == "msg22"
+			LotteryRecord.create(ucode:params[:uCode],uc:params[:uc],signature:params[:signature],terminalid:params[:terminalId],ti:params[:ti],timestamp:DateTime.now.to_date,result:"1")
 			render text: 1
 		elsif msg == 'msg23'
+			LotteryRecord.create(ucode:params[:uCode],uc:params[:uc],signature:params[:signature],terminalid:params[:terminalId],ti:params[:ti],timestamp:DateTime.now.to_date,result:"0")
 			render text: 0
 		elsif msg == 'msg21'
 			render text: 99
 		end
-		
-		
-	
 	end
 	
 	def my_post(url,uCode,json,terminalId,signature)

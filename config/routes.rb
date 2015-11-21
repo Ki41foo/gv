@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'review/index'
+
+  resources :lottery_records
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -57,4 +60,5 @@ Rails.application.routes.draw do
   root 'lottery#status'
   get 'lottery/status'
   get 'lottery/signal'
+  get 'lottery_record/index'
 end
