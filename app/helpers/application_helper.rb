@@ -1,4 +1,6 @@
 module ApplicationHelper
+  
+	
     def detel(code)
       c = code.bytes.to_a
   		new = []
@@ -7,4 +9,6 @@ module ApplicationHelper
   		end
   		return new.pack('c*')
     end
+    
+    
 end

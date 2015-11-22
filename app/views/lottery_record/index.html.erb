@@ -27,12 +27,27 @@
                 float:right;
             }
             
+            .card{
+                background-color:white;
+                padding:5px;
+                moz-border-radius: 2px;
+  				-webkit-border-radius: 2px;
+  				margin-top:3px;
+  				margin-bottom:3px;
+            }
+            #records{
+                margin-top:20px;
+            }
+            .item {
+                margin-right:25px;
+            }
+            
         </style>
      
     </header>
     
     <body>
-        <h4 id='dynamic'>總抽獎數:  <%= @total_count %><span class="right">中獎次數:  <%= @bingo_count %></span></h4>
+        <h4 class='card'>總抽獎數:  <%= @total_count %><span class="right">中獎次數:  <%= @bingo_count %></span></h4>
         
         <div>
             
@@ -40,10 +55,10 @@
             <%= pie_chart @signature_data,height: "200px" %>
             
         </div>
-       <ul>
+       <div id='records'>
            <%= render @lottery_records%>
            
-       </ul>
+       </div>
         
     </body>
     

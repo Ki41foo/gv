@@ -1,8 +1,8 @@
-<li>
+<div class='card'>
     
-    <span><%= lottery_record.uc.split('-')[0] %></span>
-    <span><%= detel(lottery_record.uc.split('-')[1]) %></span>
-    <span><%= lottery_record.created_at.strftime('%F %H:%M') %></span>
-    <span><%= lottery_record.ti %></span>
+    <span class='item'><%= lottery_record.uc.split('-')[0] %></span>
+    <span class='item'><%= detel(lottery_record.uc.split('-')[1]) %></span>
+    <span class='item'><%= lottery_record.created_at.getlocal('+08:00').strftime('%F %H:%M') %></span>
+    <span class='item'><%= lottery_record.ti %></span>
     
-</li>
+</div>
