@@ -8,14 +8,15 @@
             
             $(document).ready(function() {
                 
-                setInterval(function() {
-                    //$('#dynamic').load('/review/index #dynamic')
-                    //window.location.reload();
-                     },20000);
+                // setInterval(function() {
+                //     Chartkick.updateChart('line');  
+                //     $('#line').html("")
+                //     window.location.reload();
+                //      },3000);
             });
             
         </script>
-        <%= javascript_include_tag "http://ajax.lug.ustc.edu.cn/jsapi", "chartkick" %>
+        <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
         
         <style>
             body{
@@ -51,8 +52,8 @@
         
         <div>
             
-            <%= line_chart @count_data,xtitle: "日期", ytitle: "次數",discrete:true,height: "300px"%>
-            <%= pie_chart @signature_data,height: "200px" %>
+            <%= line_chart @count_data,id:"line", xtitle: "日期", ytitle: "次數",discrete:true,height: "300px"%>
+            <%= pie_chart @signature_data,id:"pie",height: "200px" %>
             
         </div>
        <div id='records'>
