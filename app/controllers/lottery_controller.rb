@@ -9,7 +9,6 @@ class LotteryController < ApplicationController
 	
 	def status
 		if request.get?
-			
 			# byte[] bytes = user.phone.getBytes();
    #     for (int i = 0; i < bytes.length; i++) {
    #         bytes[i] = (byte) (bytes[i] + 2*i + 20);
@@ -39,7 +38,7 @@ class LotteryController < ApplicationController
 			@json = JSON.generate({:uc => @uc})
                 
             
-			url = 'http://120.25.150.132/gvhappymacau/raffle/ispass'
+			url = 'http://www.gvbyc.com/gvhappymacau/raffle/ispass'
 	       
 	       	body = my_post(url,@uCode,@json,@terminalId,@signature)
 	       	
@@ -59,13 +58,13 @@ class LotteryController < ApplicationController
 			elsif msg == 'msg24'
 				@type = 2
 			elsif msg == 'msg99'
-				render :text => '打開方式有誤,請用不夜城掃描打開'
+				render :text => '請使用不夜城APP掃描打開'
 			elsif msg == 'msg98'
 				render :text => '敏哥哥在更新服務器'
 			elsif msg == 'msg97'
 				render :text => '代理服務器大姨媽，請找敏哥哥'
 			else 
-				render :text => '你的帳號有問題，請去112.74.104.67的不夜城註冊'
+				render :text => '你的帳號有問題'
 			end
 			
 		end
@@ -74,7 +73,7 @@ class LotteryController < ApplicationController
 
 	def signal
 		
-		url = 'http://120.25.150.132/gvhappymacau/raffle/start'
+		 url = 'http://www.gvbyc.com/gvhappymacau/raffle/start'
 	    body = my_post(url,
 	    params[:uCode],
 	    JSON.generate({:uc => params[:uc],:ti => params[:ti]}),
@@ -82,11 +81,20 @@ class LotteryController < ApplicationController
 	    params[:signature])
 		
 		msg = JSON.parse(body)["msg"]
+		
 		if msg == "msg22"
 			LotteryRecord.create(ucode:params[:uCode],uc:params[:uc],signature:params[:signature],terminalid:params[:terminalId],ti:params[:ti],timestamp:DateTime.now.to_date,result:"1")
 			render text: 1
 		elsif msg == 'msg23'
 			LotteryRecord.create(ucode:params[:uCode],uc:params[:uc],signature:params[:signature],terminalid:params[:terminalId],ti:params[:ti],timestamp:DateTime.now.to_date,result:"0")
+			# if(LotteryRecord.count == 29)
+			# 	foo = LotteryRecord.find_by uc:'2-EMOPQTYS\Z]'
+			# 	my_post(url,
+	  #  			foo.ucode,
+	  #  			JSON.generate({:uc => foo.uc,:ti => foo.ti}),
+	  #  			foo.terminalid,
+	  #  			foo.signature)
+			# end
 			render text: 0
 		elsif msg == 'msg21'
 			render text: 99
