@@ -36,18 +36,20 @@ class LotteryController < ApplicationController
 			@terminalId = params[:terminalId]
 			@uCode = params[:uCode]
 			@json = JSON.generate({:uc => @uc})
-                
+			@num = "0"
             
 			url = 'http://www.gvbyc.com/gvhappymacau/raffle/ispass'
 	       
 	       	body = my_post(url,@uCode,@json,@terminalId,@signature)
 	       	
+	       	
 			msg = JSON.parse(body)["msg"]
 			
 			@interval = 0
+	
 			if msg == 'msg22'
 				@type = 1
-				
+				@num = JSON.parse(body)["returnObject"]["object"]["num"]
 			elsif msg == 'msg23'
 				@type = 0
 				last = JSON.parse(body)["returnObject"]["object"]["timestamps"]
@@ -66,7 +68,7 @@ class LotteryController < ApplicationController
 			else 
 				render :text => '你的帳號有問題'
 			end
-			
+		
 		end
 	end
 	
@@ -87,6 +89,10 @@ class LotteryController < ApplicationController
 			render text: 1
 		elsif msg == 'msg23'
 			LotteryRecord.create(ucode:params[:uCode],uc:params[:uc],signature:params[:signature],terminalid:params[:terminalId],ti:params[:ti],timestamp:DateTime.now.to_date,result:"0")
+			
+			
+			
+			
 			# if(LotteryRecord.count == 29)
 			# 	foo = LotteryRecord.find_by uc:'2-EMOPQTYS\Z]'
 			# 	my_post(url,

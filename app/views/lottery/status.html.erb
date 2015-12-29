@@ -4,8 +4,7 @@
 		
 		<title>不夜城抽獎</title>
 		
-		<meta name="viewport" content="width=device-width, initial-scale=1,
-		user-scalable=0">
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
 		<!--<script type="text/javascript" src="./wScratchPad.min.js"></script>-->
 		<script>
 			
@@ -23,6 +22,7 @@
 				    var time    = hours+':'+minutes+':'+seconds;
 				    return time;
 				}
+				
 				
 				if(<%=@type%> ==0) {
 					
@@ -42,7 +42,7 @@
 	  				},1000);
 					
 				} else if(<%=@type%> ==1) {
-					
+				
 					$("#start").fadeIn("slow");
 					$("#tip-wrap").hide();
 					
@@ -67,7 +67,7 @@
 							result = "<%= asset_path ('damn.png') %>";
 						}
 						
-						if(data == "1") {
+						if( data == "1") {
 							result = "<%= asset_path ('bingo.png') %>";
 						}
 						
@@ -94,9 +94,12 @@
 	  								if(data == "1") {
 	  									alert("恭喜你獲得iphone 6s一臺，請速與餐廳工作人員聯係.");
 	  								}
+	  								
+	  								if(data == "0"  & <%=@num%> == "1") {
+	  									alert("返回首頁,分享不夜城APP至微信朋友圈即可獲得額外一次抽獎機會啦")
+	  								}
             					
-	  								// $("#tip").fadeIn();
-	  								// $("#tip").text("恭喜你獲得iphone 6s一臺，請憑此頁面與餐廳經理聯係。")
+
 	  							},700);
 	  						}
 	  					},       
