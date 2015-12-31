@@ -53,9 +53,7 @@ class LotteryController < ApplicationController
 			elsif msg == 'msg23'
 				@type = 0
 				last = JSON.parse(body)["returnObject"]["object"]["timestamps"]
-				@interval = 20 -  DateTime.now.to_i + last.to_i/1000
-				puts @interval
-				
+				@interval = 60 * 60 * 24 -  DateTime.now.to_i + last.to_i/1000
 				
 			elsif msg == 'msg24'
 				@type = 2
