@@ -1,9 +1,9 @@
-<div class='card'>
+<div class='record'>
     <span class='item'><%= lottery_record.id %></span>
     <span class='item'><%= lottery_record.uc.split('-')[0] %></span>
     <span class='item'><%= detel(lottery_record.uc.split('-')[1]) %></span>
     <span class='item'><%= lottery_record.created_at.getlocal('+08:00').strftime('%F %H:%M') %></span>
     <span class='item'><%= lottery_record.ti %></span>
-    
+   <span class='item'><%= LotteryRecordHelper::Mers[lottery_record.ti] %></span>
     
 </div>

@@ -38,6 +38,16 @@
             }
             #records{
                 margin-top:20px;
+                
+            }
+            .record{
+                background-color:#bb9966;
+                 
+                padding:5px;
+                moz-border-radius: 2px;
+  				-webkit-border-radius: 2px;
+  				margin-top:3px;
+  				margin-bottom:3px;
             }
             .item {
                 margin-right:25px;
@@ -55,10 +65,14 @@
             <%= line_chart @count_data,id:"line", xtitle: "日期", ytitle: "次數",discrete:true,height: "300px"%>
             <%= pie_chart @signature_data,id:"pie",height: "200px" %>
             
+            
         </div>
        <div id='records'>
            <%= render @lottery_records%>
            
+       </div>
+       <div>
+           <%= bar_chart @detail,height: "#{@detail.length * 50}px" %>
        </div>
         
     </body>
