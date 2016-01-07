@@ -71,9 +71,11 @@
            <%= render @lottery_records%>
            
        </div>
+       <h4 class='card'>餐廳參與數:  <%= @detail.length %></h4>
        <div>
            <%= bar_chart @detail,height: "#{@detail.length * 50}px" %>
        </div>
+       <h4 class='card'>參與人數:  <%= @user_count.length %></h4>
        <div>
            <%= column_chart @user_count%>
        </div>
