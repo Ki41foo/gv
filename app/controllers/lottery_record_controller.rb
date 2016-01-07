@@ -17,6 +17,8 @@ class LotteryRecordController < ApplicationController
             |k| hash[LotteryRecordHelper::Mers[k]] = hash.delete(k)
         }
         @detail = hash
+        
+        @user_count = LotteryRecord.group(:ucode).count
   end
   
   
