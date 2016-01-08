@@ -31,11 +31,15 @@ class LotteryController < ApplicationController
 			# @uCode = "17"
 			
 			@uc = params[:uc]
+			@uc_2 = @uc.gsub '\\','\\\\\\'
+	       	puts @uc_2
+			
 			@ti = params[:ti]
 			@signature = params[:signature]
 			@terminalId = params[:terminalId]
 			@uCode = params[:uCode]
 			@json = JSON.generate({:uc => @uc})
+			puts @json
 			@num = "0"
             
 			url = 'http://www.gvbyc.com/gvhappymacau/raffle/ispass'
@@ -77,9 +81,10 @@ class LotteryController < ApplicationController
 	    body = my_post(url,
 	    params[:uCode],
 	    JSON.generate({:uc => params[:uc],:ti => params[:ti]}),
+	    
 	    params[:terminalId],
 	    params[:signature])
-		
+		puts JSON.generate({:uc => params[:uc],:ti => params[:ti]})
 		msg = JSON.parse(body)["msg"]
 		
 		if msg == "msg22"

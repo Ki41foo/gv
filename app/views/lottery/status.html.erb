@@ -42,7 +42,9 @@
 	  				},1000);
 					
 				} else if(<%=@type%> ==1) {
-				
+					var b = "lottery/signal?uc=<%= @uc_2 %>&signature=";
+					alert(b)
+					
 					$("#start").fadeIn("slow");
 					$("#tip-wrap").hide();
 					
@@ -58,8 +60,10 @@
 				}
 			
 				$("#start").click(function() {
+					
 					$.ajax({
-  						url: "lottery/signal?uc=<%=@uc%>&signature=<%=@signature%>&terminalId=<%=@terminalId%>&uCode=<%=@uCode%>&ti=<%=@ti%>",
+						
+  						url: "lottery/signal?uc=<%= @uc_2 %>&signature=<%=@signature%>&terminalId=<%=@terminalId%>&uCode=<%=@uCode%>&ti=<%=@ti%>",
 					}).done(function(data) {
 					    
 						var result;
