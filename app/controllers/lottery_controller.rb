@@ -75,18 +75,18 @@ class LotteryController < ApplicationController
 		
 		 url = 'http://www.gvbyc.com/gvhappymacau/raffle/start'
 	    body = my_post(url,
-	    params[:uCode],
-	    JSON.generate({:uc => params[:uc],:ti => params[:ti]}),
-	    params[:terminalId],
-	    params[:signature])
+	    @uCode,
+	    JSON.generate({:uc => @uc,:ti => params[:ti]}),
+	    @terminalId,
+	    @signature)
 		
 		msg = JSON.parse(body)["msg"]
 		
 		if msg == "msg22"
-			LotteryRecord.create(ucode:params[:uCode],uc:params[:uc],signature:params[:signature],terminalid:params[:terminalId],ti:params[:ti],timestamp:DateTime.now.to_date,result:"1")
+			LotteryRecord.create(ucode:@uCode,uc:@uc,signature:@signature,terminalid:@terminalId,ti:params[:ti],timestamp:DateTime.now.to_date,result:"1")
 			render text: 1
 		elsif msg == 'msg23'
-			LotteryRecord.create(ucode:params[:uCode],uc:params[:uc],signature:params[:signature],terminalid:params[:terminalId],ti:params[:ti],timestamp:DateTime.now.to_date,result:"0")
+			LotteryRecord.create(ucode:@uCode,uc:@uc,signature:@signature,terminalid:@terminalId,ti:params[:ti],timestamp:DateTime.now.to_date,result:"0")
 			
 			
 			
