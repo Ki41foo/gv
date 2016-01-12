@@ -77,7 +77,7 @@ class LotteryController < ApplicationController
 
 	def signal
 		
-		 url = 'http://www.gvbyc.com/gvhappymacau/raffle/start'
+		url = 'http://www.gvbyc.com/gvhappymacau/raffle/start'
 	    body = my_post(url,
 	    params[:uCode],
 	    JSON.generate({:uc => params[:uc],:ti => params[:ti]}),
