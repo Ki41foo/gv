@@ -61,7 +61,8 @@
 				$("#start").click(function() {
 					
 					$.ajax({
-						
+						data:'',
+						cache: false,
   						url: "lottery/signal?uc=<%= @uc_2 %>&signature=<%=@signature%>&terminalId=<%=@terminalId%>&uCode=<%=@uCode%>&ti=<%=@ti%>",
 					}).done(function(data) {
 					    
