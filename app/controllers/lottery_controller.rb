@@ -106,6 +106,8 @@ class LotteryController < ApplicationController
 			# end
 			render text: 0
 		elsif msg == 'msg21'
+			render text: 21
+		elsif msg == 'msg25'
 			render text: 99
 		end
 	end

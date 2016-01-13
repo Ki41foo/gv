@@ -75,13 +75,18 @@
 							result = "<%= asset_path ('bingo.png') %>";
 						}
 						
+						if(data == "21") {
+							$('#start').hide();
+							$('#tip-wrap').show();
+							$('#tip-wrap').css('background-color','grey')
+							$('#tip').text('您的帳號為測試時註冊，在設定菜單登出後重新登陸即可正常使用')
+							return;
+						}
+						
 						if(data == "99") {
 							
 						
-							// $('#start').hide();
-							// $('#tip-wrap').show();
-							// $('#tip-wrap').css('background-color','grey')
-							// $('#tip').text('出錯了')
+							
 							return;
 						}
 						
