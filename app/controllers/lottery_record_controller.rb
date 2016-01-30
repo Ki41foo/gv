@@ -9,7 +9,15 @@ class LotteryRecordController < ApplicationController
         @total_count = LotteryRecord.count
         @lottery_records = LotteryRecord.where("result=1").reverse_order
         @bingo_count = @lottery_records.count
-        @hour_data = LotteryRecord.group("strftime('%H', created_at)").count
+        
+        
+        hhash = LotteryRecord.group("strftime('%H', created_at)").count
+
+        hhash.keys.each {
+            |k| hhash[(k.to_i + 8)%24] = hhash.delete(k)
+        }
+        @hour_data = hhash
+        
         @count_data = LotteryRecord.group(:timestamp).count
         
         @signature_data = LotteryRecord.group(:signature).count
