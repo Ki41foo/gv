@@ -61,7 +61,7 @@
         <h4 class='card'>總抽獎數:  <%= @total_count %><span class="right">中獎次數:  <%= @bingo_count %></span></h4>
         
         <div>
-            
+            <%= line_chart @hour_data, xtitle: "鐘數", ytitle: "次數",discrete:true,height: "300px"%>
             <%= line_chart @count_data,id:"line", xtitle: "日期", ytitle: "次數",discrete:true,height: "300px"%>
             <%= pie_chart @signature_data,id:"pie",height: "200px" %>
             

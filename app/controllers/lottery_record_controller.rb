@@ -9,7 +9,9 @@ class LotteryRecordController < ApplicationController
         @total_count = LotteryRecord.count
         @lottery_records = LotteryRecord.where("result=1").reverse_order
         @bingo_count = @lottery_records.count
+        @hour_data = LotteryRecord.group("strftime('%H', created_at)").count
         @count_data = LotteryRecord.group(:timestamp).count
+        
         @signature_data = LotteryRecord.group(:signature).count
         
         hash = LotteryRecord.group(:ti).count
